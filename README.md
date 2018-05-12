@@ -1,6 +1,5 @@
 # Caml Query Generator
-Javascript Camel Query Generator
-This function is really pretty simple
+Javascript Camel Query Generator (really pretty simple function)
 
 Caml Query format 
 
