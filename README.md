@@ -7,6 +7,13 @@ Caml Query format
 ```
 <Where>
   <Eq> Condition... </Eq>
+  <And>
+     <Eq> Condition ... </Eq>
+     <And>
+        <Eq> Condition ... </Eq>
+        <Eq> Condition ... </Eq>
+     </And>
+  </And>
 </Where>
 ```
 
