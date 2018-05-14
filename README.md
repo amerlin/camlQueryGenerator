@@ -20,8 +20,10 @@ Caml Query format
 
 Generate javascript using
 
+```
 tsc caml-generator.ts
 
 Using node.js to run:
 
+```
 run caml-generator.js
