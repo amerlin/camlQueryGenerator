@@ -27,5 +27,5 @@ tsc caml-generator.ts
 Using node.js to run:
 
 ```
-run caml-generator.js
+node caml-generator.js
 ```
