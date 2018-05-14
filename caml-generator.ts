@@ -14,6 +14,13 @@ function CreateCamlQuery(elements: SingleElement[]): string {
         returnQuery +=ComposeElements(elements[0]);
     }
 
+    if (elementArray.length == 2) {
+        returnQuery += '<And>';
+        returnQuery += ComposeElements(elements[0]);
+        returnQuery += ComposeElements(elements[1]);
+        returnQuery += '</And>';
+    } 
+
     return returnQuery;
 
 }
@@ -29,7 +36,7 @@ function ComposeElements(element: SingleElement): string {
 
 let elementArray: SingleElement[] = [];
 elementArray.push({ Name: "name1", Value: "value1" });
-// elementArray.push({ Name: "name2", Value: "value2" });
+elementArray.push({ Name: "name2", Value: "value2" });
 let result = CreateCamlQuery(elementArray);
 console.log(result);
 
