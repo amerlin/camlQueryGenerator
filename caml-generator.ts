@@ -1,9 +1,11 @@
+//class element
 class SingleElement {
     Name: string;
     Value: string;
 };
 
-function CreateCamlQuery(elements: SingleElement[]): string {
+//Main function 
+function CamlGenerator(elements: SingleElement[]): string {
 
     let returnQuery = '';
 
@@ -13,8 +15,6 @@ function CreateCamlQuery(elements: SingleElement[]): string {
     if (elements.length == 1) {
         returnQuery +=ComposeElements(elements[0]);
     }
-
-    console.log(elements.length);
 
     if (elements.length == 2) {
         returnQuery += '<And>';
@@ -39,20 +39,30 @@ function CreateCamlQuery(elements: SingleElement[]): string {
 
 }
 
+//Compose function
 function ComposeElements(element: SingleElement): string {
     let expression = '';
     expression = '<Eq><FieldRef Name=' + element.Name + '/><Value>' + element.Value + '</Value></Eq>'
     return expression;
 }
 
+//demo function
+function demo() {
 
+    let elementArray: SingleElement[] = [];
+    elementArray.push({ Name: "name1", Value: "value1" });
+    elementArray.push({ Name: "name2", Value: "value2" });
+    elementArray.push({ Name: "name3", Value: "value3" });
+    let camlQuery = CamlGenerator(elementArray);
 
+    let query = '<Query>';
+    query += '<Where>' + camlQuery + '</Where>';
+    query += '</Query>';
 
-let elementArray: SingleElement[] = [];
-elementArray.push({ Name: "name1", Value: "value1" });
-elementArray.push({ Name: "name2", Value: "value2" });
-elementArray.push({ Name: "name3", Value: "value3" });
-let result = CreateCamlQuery(elementArray);
-console.log(result);
+    console.log(query);
+}
+
+//run
+demo();
 
 
