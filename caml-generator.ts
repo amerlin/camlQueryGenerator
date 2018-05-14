@@ -19,7 +19,20 @@ function CreateCamlQuery(elements: SingleElement[]): string {
         returnQuery += ComposeElements(elements[0]);
         returnQuery += ComposeElements(elements[1]);
         returnQuery += '</And>';
+        return returnQuery;
     } 
+
+    returnQuery +="<And>";
+    returnQuery += ComposeElements(elements[0]);
+    returnQuery += ComposeElements(elements[1]);
+    returnQuery += '</And>';
+
+    for (let i = 3; i < elements.length; i++) {
+        returnQuery ='<And>'+returnQuery;
+        returnQuery += ComposeElements(elements[i]);
+        returnQuery +='</And>';
+    }
+
 
     return returnQuery;
 
