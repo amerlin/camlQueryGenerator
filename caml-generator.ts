@@ -10,11 +10,13 @@ function CreateCamlQuery(elements: SingleElement[]): string {
     if (elements.length == 0)
         return returnQuery;
 
-    if (elementArray.length == 1) {
+    if (elements.length == 1) {
         returnQuery +=ComposeElements(elements[0]);
     }
 
-    if (elementArray.length == 2) {
+    console.log(elements.length);
+
+    if (elements.length == 2) {
         returnQuery += '<And>';
         returnQuery += ComposeElements(elements[0]);
         returnQuery += ComposeElements(elements[1]);
@@ -22,15 +24,15 @@ function CreateCamlQuery(elements: SingleElement[]): string {
         return returnQuery;
     } 
 
-    returnQuery +="<And>";
+    returnQuery += '<And>';
     returnQuery += ComposeElements(elements[0]);
     returnQuery += ComposeElements(elements[1]);
     returnQuery += '</And>';
 
-    for (let i = 3; i < elements.length; i++) {
-        returnQuery ='<And>'+returnQuery;
+    for (let i = 2; i < elements.length; i++) {
+        returnQuery = '<And>' + returnQuery;
         returnQuery += ComposeElements(elements[i]);
-        returnQuery +='</And>';
+        returnQuery += '</And>';
     }
 
     return returnQuery;
