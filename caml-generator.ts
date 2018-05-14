@@ -33,7 +33,6 @@ function CreateCamlQuery(elements: SingleElement[]): string {
         returnQuery +='</And>';
     }
 
-
     return returnQuery;
 
 }
@@ -50,6 +49,7 @@ function ComposeElements(element: SingleElement): string {
 let elementArray: SingleElement[] = [];
 elementArray.push({ Name: "name1", Value: "value1" });
 elementArray.push({ Name: "name2", Value: "value2" });
+elementArray.push({ Name: "name3", Value: "value3" });
 let result = CreateCamlQuery(elementArray);
 console.log(result);
 
